@@ -66,8 +66,9 @@ if mode == "📂 Cargar Excel":
 
         st.subheader("🔎 Análisis de precios")
         st.dataframe(results_df, use_container_width=True)
-
-        final_df = pd.concat([df.reset_index(drop=True), results_df], axis=1)
+        
+        final_df = df.reset_index(drop=True)
+        final_df["Precio de venta"] = [res["Precio de venta"] for res in results]
 
         st.subheader("📋 Resultado final")
         st.dataframe(final_df, use_container_width=True)
