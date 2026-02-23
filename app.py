@@ -37,7 +37,8 @@ if mode == "📂 Cargar Excel":
 
     if uploaded_file:
         df = pd.read_excel(uploaded_file)
-
+        if "Precio de venta" in df.columns:
+            df = df.drop(columns=["Precio de venta"])
         results = []
 
         for _, row in df.iterrows():
