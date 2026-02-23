@@ -35,6 +35,6 @@ def calculate_sale_price(
         "Coste interno": round(coste_interno, 2),
         "Precio de mercado": market_price,
         "Market ratio": None if market_ratio is None else round(market_ratio, 2),
-        "Margen aplicado": round(margin, 3),
+        "Margen aplicado": f'{int(100*margin)}%',
         "Precio de venta": round_to_nearest(price)
     }
