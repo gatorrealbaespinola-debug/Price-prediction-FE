@@ -69,6 +69,10 @@ if mode == "📂 Cargar Excel":
         
         final_df = df.reset_index(drop=True)
         final_df["Precio de venta"] = [res["Precio de venta"] for res in results]
+        final_df = final_df.drop(columns=[
+            col for col in result_df.columns
+            if col.startswith("Unnamed")
+        ], errors="ignore")
 
         st.subheader("📋 Resultado final")
         st.dataframe(final_df, use_container_width=True)
